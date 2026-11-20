@@ -32,6 +32,11 @@ class Note(NoteIn):
     id: int
 
 
+@app.get("/", tags=["monitor"])
+def root() -> dict[str, str]:
+    """A simple root endpoint to show the app is alive."""
+    return {"message": "Hello from the Notes API!"}
+
 @app.get("/health", tags=["monitor"])
 def health() -> dict[str, str]:
     """Is the app alive? Monitors and the smoke test call this."""
